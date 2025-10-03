@@ -2,8 +2,21 @@ name: a simple github workflow
 
 on: 
   workflow_dispatch:
+  push:
+    branches:
+      - master
 
 jobs:
+  my_self_hosted_runner:
+    name: my self hosted job
+    runs-on: self-hosted
+    steps:
+      - name: 1st step in a self hosted github runner
+        id: jobstepid
+        shell: cmd
+        run: |
+          echo This is the first time iam running som,ething in a self hosted runner for github workflow
+          echo Great to see that it is running fine!!!!
   a_simple_github_workflow_job:
     name: a simple job
     runs-on: ubuntu-latest
